@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Aplicación con Sockets</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="main.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 80%;
+            max-width: 400px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 0;
+        }
+
+        #messages {
+            border: 1px solid #ccc;
+            height: 200px;
+            overflow-y: scroll;
+            margin-bottom: 20px;
+            padding: 10px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        form input[type="text"],
+        form input[type="submit"] {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        form input[type="text"]:focus {
+            border-color: dodgerblue;
+        }
+
+        form input[type="submit"] {
+            background-color: dodgerblue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        form input[type="submit"]:hover {
+            background-color: #007acc;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>My App</h1>
+        <div id="messages"></div>
+        <form onsubmit="return addMessage(this)">
+            <input type="text" id="username" placeholder="Tu Nombre" />
+            <input type="text" id="texto" placeholder="Cuéntanos algo..." />
+            <input type="submit" value="Enviar!" />
+        </form>
+    </div>
+</body>
+
+</html>
